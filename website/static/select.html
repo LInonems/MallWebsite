@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>筛选页</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<div class="header">
+		<div class="topbar">
+			<div class="comWidth">
+				<div class="fl">
+					<a href="#" id="collection">收藏天猫</a>
+				</div>
+				<div class="fr">
+					<span>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>！</span>
+					<a href="/login.html" class="login">登录</a>
+					<a href="/signup.html" class="register">免费注册</a>
+				</div>
+			</div>
+			<div class="comWidth logined none">
+				<div class="fl" style="position:relative;">
+					<a href="javascript:void(0);" id="collection">收藏天猫</a>
+					<a href="javascript:void(0);" class="username" style="position:relative"><small id="username"></small></a>
+					<div class="personalInfo none" >
+						<img src="" class="headPic">
+						<a href="javascript:void(0);">账号管理</a>
+						<a href="javascript:void(0);" class="quit">退出</a>
+					</div>
+				</div>
+				<div class="fr" style="margin-left:40px">
+					<ul class="info">
+						<li>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>!</li>
+						<li>
+							<a href="/myorder.html">我的淘宝<i class="reverse"></i></a>
+						</li>
+						<li>
+							<a href="/shopcar.html">购物车&nbsp;<i class="num font"></i><i class="reverse"></i></a>
+							<ul class="shopcarList none">
+								<li><b>最近加入购物车的宝贝</b></li>
+								<li class="shopItem" hidden>
+									<i class="productID" hidden></i>
+									<img  class="fl">
+									<div style="padding-left:10px;margin-bottom:10px;" class="fl">
+										<div class="leftbox">
+											<span class="des"></span><br>
+											<div class="box">
+												颜色分类:<span class="col"></span>
+												尺码:<span class="siz"></span>
+											</div>
+										</div>
+										<div class="rightbox">
+											<div class="money">
+												￥<span class="pri"></span><br>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="s_del">删除</a>
+											</div>
+											
+										</div>
+									</div>
+								</li>
+								<li id="nothing" class="none" style="color:#ccc;text-align:center;">购物车栏空空如也&nbsp;&nbsp;&nbsp;^-^</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);">卖家中心<i class="reverse"></i></a>
+							<ul class="business none">
+								<li><a href="/seller.html">免费开店</a></li>
+								<li><a href="javascript:void(0);">已卖出的宝贝</a></li>
+								<li><a href="javascript:void(0);">出售中的宝贝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="logobar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<img src="images/logo.gif" alt="慕课网">
+				</div>
+				<div class="searchBox fl">
+					<form>
+						<input type="text" class="input_text fl">
+						<input type="submit" class="input_submit fr" value="">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="navBar">
+			<div class="comWidth">
+				<div class="shopClass fl">
+					<h3>全部商品分类<i></i></h3>
+					<div class="shopClass_show none">
+						<dl class="shopClass_items">
+							<dt>
+								<a href="#" class="b">手机</a>
+								<a href="#" class="b">数码</a>
+								<a href="#" class="bg">合约机</a>
+							</dt>
+							<dd>
+								<a href="#">荣耀3X</a>
+								<a href="#">单反</a>
+								<a href="#">智能设备</a>
+							</dd>
+						</dl>
+						<dl class="shopClass_items shopClass_active">
+							<dt>
+								<a href="#" class="b">电脑</a>
+								<a href="#" class="b">硬件外设</a>
+								<a href="#" class="bg">装机宝</a>
+							</dt>
+							<dd>
+								<a href="#">笔记本</a>
+								<a href="#">台式机</a>
+								<a href="#">超极本</a>
+								<a href="#">平板</a>
+							</dd>
+						</dl>
+						<dl class="shopClass_items">
+							<dt>
+								<a href="#" class="b">大家电</a>
+							</dt>
+							<dd>
+								<a href="#">电视</a>
+								<a href="#">空调</a>
+								<a href="#">冰箱</a>
+								<a href="#">洗衣机</a>
+							</dd>
+						</dl>
+						<dl class="shopClass_items">
+							<dt>
+								<a href="#" class="b">厨房电器</a>
+								<a href="#" class="b">生活电器</a>
+							</dt>
+							<dd>
+								<a href="#">空气计划器</a>
+								<a href="#">微波炉</a>
+								<a href="#">取暖设备</a>
+							</dd>
+						</dl>
+						<dl class="shopClass_items">
+							<dt>
+								<a href="#" class="b">食品/饮料/生鲜</a>
+								<a href="#" class="bg">粮油</a>
+							</dt>
+							<dd>
+								<a href="#">进口</a>
+								<a href="#">方便面</a>
+								<a href="#">零食</a>
+								<a href="#">保健</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="shopClass_list none">
+						<dl class="shopList_item">
+							<dt>电脑整机</dt>
+							<dd>
+								<a href="#">超极本</a>
+								<a href="#">上网本</a>
+								<a href="#">平板电脑</a>
+								<a href="#">台式机</a>
+							</dd>
+						</dl>
+						<dl class="shopList_item">
+							<dt>电脑整机</dt>
+							<dd>
+								<a href="#">超极本</a>
+								<a href="#">上网本</a>
+								<a href="#">平板电脑</a>
+								<a href="#">台式机</a>
+							</dd>
+						</dl>
+						<dl class="shopList_item">
+							<dt>电脑整机</dt>
+							<dd>
+								<a href="#">CPU</a>
+								<a href="#">硬盘</a>
+								<a href="#">SSD固态硬盘</a>
+								<a href="#">内存</a>
+								<a href="#">显示器</a>
+								<a href="#">智能显示器</a>
+								<a href="#">主板</a>
+								<a href="#">显卡</a>
+								<a href="#">机箱</a>
+								<a href="#">电源</a>
+								<a href="#">散热器</a>
+							</dd>
+						</dl>
+						<div class="shopList_link">
+							<a href="#">电脑整机频道</a>
+						</div>
+						<div class="shopList_link">
+							<a href="#">硬件/外设频道</a>
+						</div>
+					</div>
+				</div>
+				<ul class="nav">
+					<li><a href="#" class="active">数码城</a></li>
+					<li><a href="#">天黑黑</a></li>
+					<li><a href="#">团购</a></li>
+					<li><a href="#">发现</a></li>
+					<li><a href="#">二手特卖</a></li>
+					<li><a href="#">名品会</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="wrap clearfix">
+		<div class="comWidth">
+			<div class="product fl">
+				<h3>产品分类</h3>
+				<dl class="productClass">
+					<dt>手机通讯</dt>
+					<dd class="productsClass">
+						<a href="#">手机</a>
+						<a href="#">对讲机</a>
+					</dd>
+				</dl>
+				<dl class="productClass">
+					<dt>运营商</dt>
+					<dd class="productsClass">
+						<a href="#">购机送费</a>
+						<a href="#">“0”元购机</a>
+						<a href="#">送号入网</a>
+					</dd>
+				</dl>
+				<dl class="productClass">
+					<dt>手机配件</dt>
+					<dd class="productsClass">
+						<a href="#">手机电池</a>
+						<a href="#">蓝牙耳机</a>
+						<a href="#">充电器/数据线</a>
+						<a href="#">手机耳机</a>
+						<a href="#">手机贴膜</a>
+						<a href="#">手机存储卡</a>
+						<a href="#">手机保护套</a>
+						<a href="#">车载配件</a>
+						<a href="#">iPhone 配件</a>
+					</dd>
+				</dl>
+			</div>
+			<div class="productDetail fl">
+				<div class="product_class">
+					<dl class="dl">
+						<dt>手机</dt>
+						<dd>
+							<a href="#" style="padding-right:50px">裸机(<span class="productNumber">773</span>)</a>
+							<a href="#">合约机(<span class="productNumber">192</span>)</a>
+						</dd>
+					</dl>
+					<dl class="dl">
+						<dt>品牌</dt>
+						<a href="#" class="more fr">更多&gt;&gt;</a>
+						<dd>
+							<a href="#">Samsung/三星</a>
+							<a href="#">Apple/苹果</a>
+							<a href="#">Huawei/华为</a>
+							<a href="#">Miu/小米</a>
+							<a href="#">Lenovo/联想</a>
+							<a href="#">Sony/索尼</a>
+							<a href="#">HTC/宏达电</a>
+							<a href="#">Coolpad/酷派</a>
+							<a href="#">MeiZu/魅族</a>
+							<a href="#">Bbk/步步高</a>
+							<a href="#">Oppo/欧珀</a>
+							<a href="#">Motorola/摩托罗拉</a>
+						</dd>
+						
+					</dl>
+					<dl class="dl">
+						<dt>屏幕尺寸</dt>
+						<a href="#" class="more fr">更多&gt;&gt;</a>
+						<dd>
+							<a href="#" style="width:150px">超大屏幕(>5.9英寸)</a>
+							<a href="#" style="width:150px">大屏幕(4.8-5.8英寸)</a>
+							<a href="#" style="width:150px">主流屏幕尺寸(4.0-4.7英寸)</a>
+						</dd>
+					</dl>
+					<dl class="dl">
+						<dt>操作系统</dt>
+						<a href="#" class="more fr">更多&gt;&gt;</a>
+						<dd>
+							<a href="#">Android</a>
+							<a href="#">苹果iOS</a>
+							<a href="#">Windows phone</a>
+							<a href="#">Symbian</a>
+							<a href="#">非智能机</a>
+						</dd>
+					</dl>
+					<dl class="dl">
+						<dt>使用网络制式</dt>
+						<a href="#" class="more fr">更多&gt;&gt;</a>
+						<dd>
+							<a href="#">4G(TD-LTE)</a>
+							<a href="#">4G(FDD-LTE)</a>
+							<a href="#">移动3G(TD-SCDMA)</a>
+							<a href="#">移动3.5G(TD-HSDPA)</a>
+						</dd>
+					</dl>
+					<dl class="dl">
+						<dt>更多选项</dt>
+						<dd>
+							<select>
+								<option>CPU核心数</option>
+								<option value="单核">单核</option>
+								<option value="双核">双核</option>
+								<option value="四核">四核</option>
+							</select>
+							<select>
+								<option>主摄像头像素</option>
+								<option value="单核">500万</option>
+								<option value="双核">800万</option>
+								<option value="四核">1000万</option>
+							</select>
+						</dd>		
+					</dl>
+				</div>
+				<div class="products">
+					<div class="tips">送至
+						<select>
+							<option value="海珠区">海珠区</option>
+						</select>
+						<span class="fr">
+							<input type="checkbox">仅显示有货
+							<span style="color:#999999">共<span style="color:#D80000;font-weight:bold;"> 16422 </span>件商品</span>
+						</span>
+					</div>
+					<ul class="products_list clearfix">
+						<li class="goodsBox fl" hidden>
+							<i class="productID" hidden></i>
+							<img src="images/shop.jpg" class="pic">
+							<p class="descrip"></p>
+							<span class="money">￥<span class="price"></span></span>
+							<span class="comment">4886</span>评论
+							<div class="buy">&nbsp;&nbsp;&nbsp;加入购物车</div>
+						</li>
+					</ul>
+				</div>
+				<div class="clearfix" style="text-align:center;">
+					<ul class="pageBox">
+						<li><a href="#" id="pageUp">上一页</a></li>
+						<li>
+							<ul class="pages">
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+								<li><a href="#">1</a></li>
+							</ul>
+						</li>
+						<li><a href="#" id="pageDown">下一页</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="comWidth">
+			<p>
+				<a href="#">慕课介绍</a>
+				<a href="#">慕课公告</a>
+				<a href="#">招纳贤士</a>
+				<a href="#">联系我们</a>
+				客服热线:400-675-1234
+			</p>
+			<p>Copyright © 2006-2014</p>
+		</div>
+	</div>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/select.js"></script>
+</body>
+</html>

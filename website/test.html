@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>管理员登录页面</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div id="login" class="form" v-if="logined">
+		<h3>管理员登录页面</h3>
+		<div class="form-group">
+			<label for="username">用户名</label>
+			<input type="text" class="form-control" id="username" placeholder="请输入用户名" v-model.trim="username">
+		</div>
+		<div class="form-group">
+			<label for="password">密码</label>
+			<input type="password" class="form-control" id="password" placeholder="请输入用户名" v-model.trim="password">
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" v-model="remind">记住密码
+			</label>
+		</div>
+		<button type="submit" class="btn btn-lg btn-primary btn-block"  @click="login">登录</button>
+	</div>
+	<div id="manager">
+		<div class="topbar" id="topbar">
+			<span class="title">电商网站管理页面</span>
+			<div class="managerInfo">
+				<img src="static/images/icon.png" alt="隐藏左边的导航栏" class="icon">
+				<div class="manager fr" @mouseover="showInfo" @mouseout="hideInfo">
+					<span >{{managerName}}</span>
+					<img :src="headPic" src="static/images/head.jpg" class="head" >
+					<ul class="list-unstyled" v-show="showinfo">
+						<li><a href="#">设置</a></li>
+						<li><a href="#" @click="loginout">退出登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="wrap">
+			<div id="sidebar">
+				<ul class="nav nav-pills nav-stacked">
+					<li><router-link to="/user" class="on" >用户管理</router-link></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div id="showlist" >
+				<h5></h5>
+				<div class="searchBox">
+					<input type="text" placeholder="姓名" >
+					<button class="btn btn-primary" class="button" >查询</button>
+					<button class="btn btn-primary" class="button" >新增</button>
+				</div>
+				<router-view></router-view>
+				<div id="foot">
+					<button class="btn btn-danger"  >批量删除</button>
+					<ul class="pagination">
+						<li><a href="#" >&laquo</a></li>
+						<li><a href="#" >&raquo;</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="static/js/vue.js"></script>
+	<script type="text/x-template" id="user">
+		<table class="table table-hover container" >
+			<tr class="info">
+				<th><input type="checkbox" class="check"></th>
+				<th>#</th>
+				<th>用户名</th>
+				<th>密码</th>
+				<th>昵称</th>
+				<th>邮箱</th>
+				<th>地址</th>
+				<th>创建时间</th>
+				<th>操作</th>
+			</tr>
+			<tr v-for="(data,index) in datalist">
+				<td><input type="checkBox"></td>
+				<td style="padding-right:20px;">{{index}}</td>
+				<td class="col-md-1">{{data.username}}</td>
+				<td class="col-md-1">{{data.password}}</td>
+				<td class="col-md-1">{{data.name}}</td>
+				<td class="col-md-2">{{data.email}}</td>
+				<td class="col-md-3">{{data.address}}</td>
+				<td class="col-md-2">{{data.time}}</td>
+				<td class="col-md-1">
+					<button class="btn btn-default btn-sm" @click="edit">编辑</button>
+					<button class="btn btn-danger btn-sm" @click="del">删除</button>
+				</td>
+			</tr>
+			</table>
+	</script>
+	<script src="static/js/test.js"></script>
+	<link rel="stylesheet" href="static/css/manager.css">
+</body>
+</html>

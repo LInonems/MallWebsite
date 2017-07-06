@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>购物车</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="topbar">
+			<div class="comWidth">
+				<div class="fl" style="position:relative;">
+					<a href="javascript:void(0);" id="collection">收藏天猫</a>
+					<a href="javascript:void(0);" class="username" style="position:relative"><small id="username"></small></a>
+					<div class="personalInfo none" >
+						<img src="" class="headPic">
+						<a href="javascript:void(0);">账号管理</a>
+						<a href="javascript:void(0);" class="quit">退出</a>
+					</div>
+				</div>
+				<div class="fr" style="margin-left:40px">
+					<ul class="info">
+						<li>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>！</li>
+						<li>
+							<a href="/myorder.html">我的淘宝<i class="reverse"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">购物车&nbsp;<i class="num font"></i><i class="reverse"></i></a>
+							<ul class="shopcarList none">
+								<li><b>最近加入购物车的宝贝</b></li>
+								<li class="shopItem" hidden>
+									<i class="productID" hidden></i>
+									<img  class="fl">
+									<div style="padding-left:10px;margin-bottom:10px;" class="fl">
+										<div class="leftbox">
+											<span class="des"></span><br>
+											<div class="box">
+												颜色分类:<span class="col"></span>
+												尺码:<span class="siz"></span>
+											</div>
+										</div>
+										<div class="rightbox">
+											<div class="money">
+												￥<span class="pri"></span><br>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="s_del">删除</a>
+											</div>
+											
+										</div>
+									</div>
+								</li>
+								<li id="nothing" class="none" style="color:#ccc;text-align:center;">购物车栏空空如也&nbsp;&nbsp;&nbsp;^-^</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);">卖家中心<i class="reverse"></i></a>
+							<ul class="business none">
+								<li><a href="/seller.html">免费开店</a></li>
+								<li><a href="javascript:void(0);">出售中的宝贝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="logobar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<img src="images/logo.gif" alt="慕课网">
+				</div>
+				<div class="payProcess fr">
+					<span class="number payProcess_active">1</span><hr class="payProcess_active"><span class="number">2</span><hr><span class="number">3</span>
+					<div>
+						<span class="name name_active" style="margin-left:-20px;">我的购物车</span>
+						<span class="name" style="margin-left:20px;">填写核对订单</span>
+						<span class="name" style="margin-left:30px;">订单提交成功</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="comWidth">
+			<h2 class="font">全部商品<span id="shopNum"></span></h2>
+			<table>
+				<tr class="title">
+					<th><input type="checkbox" class="checkAll">全选</th>
+					<th>商品信息</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>金额</th>
+					<th>操作</th>
+				</tr>
+				<tr class="shop" hidden>
+					<td style="padding:10px"><a href="javascript:void(0);" class="shopName" value=""></a></td>
+				</tr>
+				<tr class="item" hidden>
+					<td>
+						<i class="productID" hidden></i>
+						<div class="fl sel"> 
+							<input type="checkbox" name="product" >
+						</div>
+						<img class="itemImg">
+					</td>
+					<td>
+						<span class="description fl"></span>
+						<span class="icon">
+							<img src="images/seven.png" title="消费者保障服务,商家承诺七天退换">
+							<img src="images/trust.png" title="消费者保障服务,商家承诺如实描述">
+						</span>
+						<span class="type block">
+							颜色分类: <i class="color"></i><br>
+							尺码: <i class="size"></i>
+						</span>
+					</td>
+					<td>
+						<del class="disBox">￥<i class="discount"></i></del><br>
+						<span class="rpBox">￥<i class="realPrice"></i></span>
+					</td>
+					<td>
+						<a href="javascript:void(0);" class="minus">-</a><input type="text" class="productNum" value="1"><a href="javascript:void(0);" class="plus">+</a>
+					</td>
+					<td>
+						<span class="money">￥<span class="prices">0</span></span>
+					</td>
+					<td><a href="javascript:;" class="del">删除</a></td>
+				</tr>
+			</table>
+			<ul class="bill">
+				<li><input type="checkbox" class="checkAll">全选</li>
+				<li><a href="javascript:void(0);" class="aDel">删除</a></li>
+				<li><a href="javascript:void(0);" class="rem">清除失效宝贝</a></li>
+				<li><a href="javascript:void(0);" class="remCollection">分享</a></li>
+				<li style="float:right"><div id="pay">结算</div></li>
+				<li style="float:right">合计(不含运费)&nbsp;&nbsp;
+				<span class="totalPrices"><small>￥</small><span id="totalPrices">0.00</span></span></li>
+				<li style="float:right">已选商品&nbsp;<span class="amount">0</span>&nbsp;件</li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+	<script src="js/shopcar.js"></script>
+</body>
+</html>

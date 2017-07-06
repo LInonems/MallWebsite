@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>商家页面</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/ajaxfileupload.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="topbar">
+			<div class="comWidth">
+				<div class="fl" style="position:relative;">
+					<a href="javascript:void(0);" id="collection">收藏天猫</a>
+					<a href="javascript:void(0);" class="username" style="position:relative"><small id="username"></small></a>
+					<div class="personalInfo none" >
+						<img src="" class="headPic">
+						<a href="javascript:void(0);">账号管理</a>
+						<a href="javascript:void(0);" class="quit">退出</a>
+					</div>
+				</div>
+				<div class="fr" style="margin-left:40px">
+					<ul class="info">
+						<li>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>！</li>
+						<li>
+							<a href="/myorder.html">我的淘宝<i class="reverse"></i></a>
+						</li>
+						<li>
+							<a href="/shopcar.html">购物车&nbsp;<i class="num font"></i><i class="reverse"></i></a>
+							<ul class="shopcarList none">
+								<li><b>最近加入购物车的宝贝</b></li>
+								<li class="shopItem" hidden>
+									<i class="productID" hidden></i>
+									<img  class="fl">
+									<div style="padding-left:10px;margin-bottom:10px;" class="fl">
+										<div class="leftbox">
+											<span class="des"></span><br>
+											<div class="box">
+												颜色分类:<span class="col"></span>
+												尺码:<span class="siz"></span>
+											</div>
+										</div>
+										<div class="rightbox">
+											<div class="money">
+												￥<span class="pri"></span><br>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="s_del">删除</a>
+											</div>
+											
+										</div>
+									</div>
+								</li>
+								<li id="nothing" class="none" style="color:#ccc;text-align:center;">购物车栏空空如也&nbsp;&nbsp;&nbsp;^-^</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);">卖家中心<i class="reverse"></i></a>
+							<ul class="business none">
+								<li><a href="javascript:void(0);">免费开店</a></li>
+								<li><a href="javascript:void(0);">出售中的宝贝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="logobar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<img src="" alt="">
+				</div>
+				<h2 class="Text fl" style="margin-left:0px">卖家中心</h2>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="comWidth">
+			<div class="Box">
+				<div class="sellerBar fl">
+					<h3>商家管理</h3>
+					<dl class="shopManage">
+						<dt>店铺管理</dt>
+						<dd class="open">开店</dd>
+						<dd class="opened">店面资料管理</dd>
+					</dl>
+					<dl class="dealManage">
+						<dt>交易管理</dt>
+						<dd class="sell">出售宝贝</dd>
+						<dd class="selling">出售中的宝贝</dd>
+						<dd class="sold">已售出的宝贝</dd>
+					</dl>
+					<dl class="orderManage">
+						<dt>订单管理</dt>
+						<dd class="send">发货</dd>
+						<dd class="refund">退款</dd>
+					</dl>
+				</div>
+				<div class="setUp fl" name="same">
+					<h2>免费开店</h2>
+					<div style="margin:0 auto;width:300px;margin-top:20px">
+						<label for="shopName">*店铺名字：</label><br>
+						<input type="text" id="shopName" placeholder="请输入店铺名字"><br>
+						<label for="ownerName">*注册人：</label><br>
+						<input type="text" id="ownerName" placeholder="请输入注册人名字"><br>
+						<label for="identity">*身份证：</label><br>
+						<input type="id" id="identity" placeholder="请输入身份证"><br>
+						<div id="setUp">注册商铺</div>
+					</div>
+				</div>
+				<div class="shopInfo fl none" name="same" >
+					<h2>店铺资料</h2>
+					<div>
+						<span id="shopName"></span>
+					</div>
+				</div>
+				<div class="sellGoods fl none" name="same" >
+					<h2>出售宝贝</h2>
+					<div class="goodsInfo">
+						<label for="goodsImg">商品图片：</label>
+						<input type="file" id="goodsImg" name="goodsImg"><br>
+						<img src="images/a.jpg"><br>
+						<label for="goodsDescription">商品信息：</label><br>
+						<textarea id="goodsDescription" cols="3" rows="5" placeholder="请输入商品信息"></textarea><br>
+						<label for="goodsPrice">商品价格：</label>
+						<input type="number" id="goodsPrice" placeholder="请输入商品价格"><br>
+						<label for="goodsStock">商品库存：</label>
+						<input type="text" placeholder="请输入商品库存" id="goodsStock"><br>
+						<div id="upload">上架商品</div>
+					</div>
+				</div>
+				<div class="sellingGoods fl none" name="same" >
+					<h2>出售中的宝贝<span class="sellingNum money"></span>件</h2>
+					<table>
+						<tr>
+							<th>商品图片</th>
+							<th>商品信息</th>
+							<th>商品价格</th>
+							<th>商品库存</th>
+							<th>商品操作</th>
+						</tr>
+						<tr class="sellingItem hidden">
+							<td style="width:80px;">
+								<i class="productID" hidden></i>
+								<img src="" class="itemImg">
+							</td>
+							<td style="width:200px">
+								<span class="represent"></span>
+							</td>
+							<td class="money">￥<span class="RMB"></span></td>
+							<td style="width:200px;">
+								<!-- <span>颜色</span>
+								<span>尺码</span>
+								<span>数量</span>
+								<div class="stockType">
+									<select name="color">
+										<option value="">红</option>
+										<option value="">蓝</option>
+										<option value="">白</option>
+										<option value="">绿</option>
+									</select>
+									<select name="size">
+										<option value="">S</option>
+										<option value="">M</option>
+										<option value="">L</option>
+										<option value="">XL</option>
+										<option value="">XXL</option>
+									</select>
+									<span class="quantity">20</span>
+								</div> -->
+								<span class="quantity"></span>
+							</td>
+							<td>
+								<ul>
+									<li><a href="javascript:void(0);" class="revise">修改</a></li>
+									<li><a href="javascript:void(0)" class="remove">下架</a></li>
+								</ul>
+							</td> 
+						</tr>
+					</table>
+				</div>
+				<!-- <div class="soldGoods fl" >
+					<h2>已售出的宝贝</h2>		
+				</div> -->
+				<div class="sendGoods fl none" name="same" >
+					<h2>发货&nbsp;&nbsp;&nbsp;<span class="orderNum">25</span></h2>
+					<table>
+						<tr>
+							<th>商品图片</th>
+							<th>商品信息</th>
+							<th>码数</th>
+							<th>价格</th>
+							<th>数量</th>
+							<th>总价</th>
+							<th>收货人</th>
+							<th>收货地址</th>
+							<th>发货</th>
+						</tr>
+						<tr class="sendItem hidden" >
+							<td style="width:80px;">
+								<i class="orderID" hidden></i>
+								<i class="productID" hidden></i>
+								<img src="images/shop.jpg" class="itemImg">
+							</td>
+							<td style="width:100px">
+								<span class="represent"></span>
+							</td>
+							<td>
+								<div class="s_type">
+									<span class="color"></span><br>
+									<span class="size"></span>码
+								</div>
+							</td>
+							<td class="money">￥<span class="s_RMB"></span></td>
+							<td><span class="s_amount"></span></td>
+							<td class="money">￥<span class="s_totalPrices"></span></td>
+							<td style="width:50px;"><span class="s_receiver"></span></td>
+							<td style="width:150px;">
+								<div class="s_address">
+									<span class="s_general"></span>&nbsp;&nbsp;&nbsp;
+									<span class="s_detail"></span>
+								</div>
+							</td>
+							<td>
+								<a href="javascript:void(0);" class="s_send">发货</a>
+							</td> 
+						</tr>
+					</table>
+				</div>
+				<!-- <div class="refundGoods fl" >
+					<h2>退款</h2>
+				</div> -->
+			</div>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+	<script src="js/seller.js"></script>
+</body>
+</html>

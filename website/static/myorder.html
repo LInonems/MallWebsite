@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>我的订单</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="topbar">
+			<div class="comWidth">
+				<div class="fl" style="position:relative;">
+					<a href="javascript:void(0);" id="collection">收藏天猫</a>
+					<a href="javascript:void(0);" class="username" style="position:relative"><small id="username"></small></a>
+					<div class="personalInfo none" >
+						<img src="" class="headPic">
+						<a href="javascript:void(0);">账号管理</a>
+						<a href="javascript:void(0);" class="quit">退出</a>
+					</div>
+				</div>
+				<div class="fr" style="margin-left:40px">
+					<ul class="info">
+						<li>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>！</li>
+						<li>
+							<a href="javascript:void(0);">我的淘宝<i class="reverse"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">购物车&nbsp;<i class="num font"></i><i class="reverse"></i></a>
+							<ul class="shopcarList none">
+								<li><b>最近加入购物车的宝贝</b></li>
+								<li class="shopItem" hidden>
+									<i class="productID" hidden></i>
+									<img  class="fl">
+									<div style="padding-left:10px;margin-bottom:10px;" class="fl">
+										<div class="leftbox">
+											<span class="des"></span><br>
+											<div class="box">
+												颜色分类:<span class="col"></span>
+												尺码:<span class="siz"></span>
+											</div>
+										</div>
+										<div class="rightbox">
+											<div class="money">
+												￥<span class="pri"></span><br>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="s_del">删除</a>
+											</div>
+											
+										</div>
+									</div>
+								</li>
+								<li id="nothing" class="none" style="color:#ccc;text-align:center;">购物车栏空空如也&nbsp;&nbsp;&nbsp;^-^</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);">卖家中心<i class="reverse"></i></a>
+							<ul class="business none">
+								<li><a href="/seller.html">免费开店</a></li>
+								<li><a href="javascript:void(0);">出售中的宝贝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="logobar">
+			<div class="comWidth">
+				<h2>我的订单</h2>
+			</div>
+		</div>
+	</div>
+	<div class="wrap">
+		<div class="comWidth">
+			<table class="myorder">
+				<tr>
+					<th>商品图片</th>
+					<th>商品信息</th>
+					<th>码数</th>
+					<th>价格</th>
+					<th>数量</th>
+					<th>总价</th>
+					<th>收货人</th>
+					<th>收货地址</th>
+					<th>发货</th>
+				</tr>
+				<tr class="sendItem" hidden>
+					<td style="padding:10px;">
+						<i class="orderID" hidden></i>
+						<i class="productID" hidden></i>
+						<img src="" class="itemImg" style="margin-left:0px;">
+					</td>
+					<td style="width:200px">
+						<span class="represent"></span>
+					</td>
+					<td>
+						<div class="s_type">
+							<span class="color"></span><br>
+							<span class="size"></span>码
+						</div>
+					</td>
+					<td class="money">￥<span class="s_RMB"></span></td>
+					<td><span class="s_amount"></span></td>
+					<td class="money">￥<span class="s_totalPrices"></span></td>
+					<td><span class="s_receiver"></span></td>
+					<td style="width:200px">
+						<div class="s_address">
+							<span class="s_general"></span>&nbsp;&nbsp;&nbsp;
+							<span class="s_detail"></span>
+						</div>
+					</td>
+					<td>
+						<span>商家已发货</span>
+					</td> 
+				</tr>
+			</table>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+	<script>
+		function display(){
+			$.ajax({
+				type:"GET",
+				url:"/myorder",
+				success:function(data){
+					$.each(data,function(index,item){
+						var $item=$('.sendItem:hidden').clone();
+						$item.attr('hidden',false);
+						$item.find('.itemImg').attr('src',item.src);
+						$item.find('.represent').html(item.description);
+						$item.find('.s_RMB').html(item.price);
+						$item.find('.s_amount').html(item.amount);
+						$item.find('.s_totalPrices').html(item.prices);
+						$item.find('.s_receiver').html(item.receiver);
+						$item.find('.s_general').html(item.city+item.district);
+						$item.find('.s_detail').html(item.detail);
+						$('.myorder').append($item);
+					});
+				},
+				error:function(err){
+					alert(err);
+				}
+			});
+		} 
+		display();
+	</script>
+</body>
+</html>

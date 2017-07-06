@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<link rel="stylesheet" href="../css/reset.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="logobar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<img src="../images/logo.gif" alt="慕课网">
+				</div>
+				<h2 class="Text fl">欢迎注册</h2>
+			</div>
+		</div>
+	</div>
+	<div class="warp">
+		<div class="registerBox">
+			<div id="register">
+				<label for="R_username">*账户名</label>
+				<input type="text" id="R_username" placeholder="请输入6-12位用户名(必须包含字母和数字)">
+				<span class="Tips1"></span><br>
+				<label for="R_password">*请设置密码</label>
+				<input type="password" id="R_password" placeholder="6-18位的密码" >
+				<span class="Tips2"></span><br>
+				<label for="passwordCheck">*请确认密码</label>
+				<input type="password" id="passwordCheck" placeholder="请再次输入密码">
+				<span class="Tips3"></span><br>
+				<label for="email">*邮箱</label>
+				<input type="email" id="email" placeholder="邮箱">
+				<span class="Tips4"></span><br>
+				<label for="address">*地址</label>
+				<input type="text" id="address" placeholder="地址">
+				<span class="Tips5"></span><br>
+				<input type="checkbox" style="width:auto;height:auto;"><span>我已阅读并同意<a href="" style="color:#408EF9;"><<用户注册协议>></a></span><br>
+				
+				<button id="submit">注册</button>
+			</div>
+		</div>
+	</div>
+	<script src="js/login.js"></script>
+</body>
+</html>

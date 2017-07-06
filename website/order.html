@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>订单结算</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<div class="header">
+		<div class="topbar">
+			<div class="comWidth">
+				<div class="fl" style="position:relative;">
+					<a href="javascript:void(0);" id="collection">收藏天猫</a>
+					<a href="javascript:void(0);" class="username" style="position:relative"><small id="username"></small></a>
+					<div class="personalInfo none" >
+						<img src="images/head.jpg" class="headPic">
+						<a href="javascript:void(0);">账号管理</a>
+						<a href="javascript:void(0);" class="quit">退出</a>
+					</div>
+				</div>
+				<div class="fr" style="margin-left:40px">
+					<ul class="info">
+						<li>欢迎来到<a href="/index.html" class="backIndex">天猫商城</a>！</li>
+						<li>
+							<a href="/myorder.html">我的淘宝<i class="reverse"></i></a>
+						</li>
+						<li>
+							<a href="javascript:void(0);">购物车&nbsp;<i class="num font"></i><i class="reverse"></i></a>
+							<ul class="shopcarList none">
+								<li><b>最近加入购物车的宝贝</b></li>
+								<li class="shopItem" hidden>
+									<img  class="fl">
+									<div style="padding-left:10px;margin-bottom:10px;" class="fl">
+										<div class="leftbox">
+											<span class="des"></span><br>
+											<div class="box">
+												颜色分类:<span class="col"></span>
+												尺码:<span class="siz"></span>
+											</div>
+										</div>
+										<div class="rightbox">
+											<div class="money">
+												￥<span class="pri"></span><br>
+											</div>
+											<div>
+												&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="s_del">删除</a>
+											</div>
+											
+										</div>
+									</div>
+								</li>
+								<li id="nothing" class="none" style="color:#ccc;text-align:center;">购物车栏空空如也&nbsp;&nbsp;&nbsp;^-^</li>
+							</ul>
+						</li>
+						<li>
+							<a href="javascript:void(0);">卖家中心<i class="reverse"></i></a>
+							<ul class="business none">
+								<li><a href="javascript:void(0);">免费开店</a></li>
+								<li><a href="javascript:void(0);">已卖出的宝贝</a></li>
+								<li><a href="javascript:void(0);">出售中的宝贝</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="logobar">
+			<div class="comWidth">
+				<div class="logo fl">
+					<img src="images/logo.gif" alt="慕课网">
+				</div>
+				<div class="payProcess fr">
+					<span class="number payProcess_active">1</span><hr class="payProcess_active"><span class="number payProcess_active">2</span><hr class="payProcess_active"><span class="number">3</span>
+					<div>
+						<span class="name name_active" style="margin-left:-20px;">我的购物车</span>
+						<span class="name name_active" style="margin-left:20px;">填写核对订单</span>
+						<span class="name" style="margin-left:30px;">订单提交成功</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="warp">
+		<div class="comWidth">
+			<div class="deliveryInfo clearfix">
+				<h2>收货信息</h2>
+				<div  class="deliInfo">
+					<label>*选择地区：
+						<select  class="citys">
+							<option value="北京">北京市</option>
+							<option value="广州">广州市</option>
+							<option value="上海">上海市</option>
+							<option value="深圳">深圳市</option>
+					    </select>
+					    <select name="北京">
+					    	<option value="海淀区">海淀区</option>
+					    	<option value="朝阳区">朝阳区</option>
+					    </select>
+					    <select name="广州" class="none">
+					    	<option value="天河区">天河区</option>
+					    	<option value="海珠区">海珠区</option>
+					    </select>
+					    <select name="上海" class="none">
+					    	<option value="浦东区">浦东区</option>
+					    	<option value="浦西区">浦西区</option>
+					    </select>
+					    <select name="深圳" class="none">
+					    	<option value="宝安区">宝安区</option>
+					    	<option value="罗湖区">罗湖区</option>
+					    </select>
+					</label><br>
+					<label>*详细地址：
+						<input type="text" placeholder="最多输入36个汉字" id="address" style="width:400px" maxlength="36">
+					</label><br>
+					<label>*收 货 人：
+						<input type="text" placeholder="收货人" id="receiver" maxlength="20">
+					</label><br>
+					<label>*手&nbsp;&nbsp;机：
+						<input type="tel" placeholder="请输入11位有效的手机号" maxlength="11" id="phoneNum">
+					</label><br>
+					<input type="button" value="确认收货地址" class="sure">
+				</div>
+				<a href="javascript:void(0);" class="addAddress none">添加新地址</a>
+				<a href="javascript:void(0);" class="delAddress none">删除地址</a>
+				<div class="sDeliInfo fl hidden">
+					<i class="addressID" hidden></i>
+					<span><i class="city"></i>&nbsp;<b class="district"></b>&nbsp;&nbsp;&nbsp;&nbsp;(<i class="receiver"></i>收)</span>
+					<hr>
+					<span class="address"></span>&nbsp;&nbsp;
+					<span class="phoneNum"></span>
+					<div class="choose none" ></div>
+				</div>
+				
+					
+			</div>
+			<div class="payMethod">
+				<h2>支付方式</h2>
+				<input type="radio" name="payMethod" value="Wechat">&nbsp;&nbsp;微信支付 用微信扫一扫即可支付<br>
+				<input type="radio" name="payMethod" value="Alipay">&nbsp;&nbsp;支付宝支付 用支付宝扫一扫即可支付<br>
+				<input type="radio" name="payMethod" value="Cash">&nbsp;&nbsp;货到付款 送货上门再付款,使用现金或者刷银行卡
+			</div>
+			<!-- <div class="receiptInfo">
+				<h2>发票信息</h2>
+				<input type="checkbox" style="margin:20px 5px 0px 20px;" class="check">需要发票<br>
+				<div style="margin:10px 20px">
+					<label>*发票类型
+						<select>
+							<option value="商业零售发票">商业零售发票</option>
+							<option value="增值税发票">增值税发票</option>
+						</select>
+					</label><br>
+					<label>*发票抬头：
+						<select>
+							<option value="个人">个人</option>
+							<option value="公司">公司</option>
+						</select>
+						<input type="text" placeholder="请输入姓名或者公司名称">
+					</label><br>
+					<input type="submit" value="保存" class="save">
+					<input type="reset" value="取消" class="cancel">
+				</div>
+				<div class="sReceiptInfo">
+					<span class="recType"></span>
+					<span class="recTop"></span>
+					<span class="recNam"></span>
+				</div>
+			</div> -->
+			<div class="deliveryList">
+				<h2>送货清单<a href="/shopcar.html" class="backCar fr">返回购物车修改</a></h2>
+				<table>
+					<tr class="deliveryClass">
+						<td class="first">商品名称</td>
+						<td>单价</td>
+						<td>返现</td>
+						<td>数量</td>
+						<td>小计</td>
+					</tr>
+					<tr class="goods hidden">
+						<td class="first">
+							<i class="productID" hidden></i>
+							<img  class="itemImg fl">
+							<p class="descript fl" ><a href="javascript:void(0);"></a></p><br>
+							<span class="type">
+							颜色分类: <i class="color"></i>尺码: <i class="size"></i>
+							</span>
+						</td>
+						<td><b>￥</b>&nbsp;<b class="pric"></b></td>
+						<td><b>￥</b>&nbsp;<b class="back">0.00</b></td>
+						<td class="amo"></td>
+						<td class="money">￥&nbsp;<b class="prices"></b></td>
+					</tr>
+				</table>
+			</div>
+			<div class="order clearfix">
+				<h2>订单结算</h2>
+				<div class="fr" style="padding:20px;">
+					<span>总计</span><h1 class="totalPrice">￥<span id="totalPrices"></span></h1><br><br>
+					<input type="submit" value="提交订单" id="oPay">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="comWidth">
+			<p>
+				<a href="javascript:void(0);">慕课介绍</a>
+				<a href="javascript:void(0);">慕课公告</a>
+				<a href="javascript:void(0);">招纳贤士</a>
+				<a href="javascript:void(0);">联系我们</a>
+				客服热线:400-675-1234
+			</p>
+			<p>Copyright © 2006-2014</p>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+	<script src="js/order.js"></script>
+</body>
+</html>

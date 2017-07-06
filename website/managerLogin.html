@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>管理员登录页面</title>
+	<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="static/css/manager.css">
+</head>
+<body>
+	<div id="login" class="form" v-if="logined">
+		<h3>管理员登录页面</h3>
+		<div class="form-group">
+			<label for="username">用户名</label>
+			<input type="text" class="form-control" id="username" placeholder="请输入用户名" v-model.trim="username">
+		</div>
+		<div class="form-group">
+			<label for="password">密码</label>
+			<input type="password" class="form-control" id="password" placeholder="请输入用户名" v-model.trim="password">
+		</div>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" v-model="remind">记住密码
+			</label>
+		</div>
+		<button type="submit" class="btn btn-lg btn-primary btn-block"  @click="login">登录</button>
+	</div>
+	<div id="manager">
+		<div class="topbar" id="topbar">
+			<span class="title">电商网站管理页面</span>
+			<div class="managerInfo">
+				<img src="static/images/icon.png" alt="隐藏左边的导航栏" class="icon">
+				<div class="manager fr" @mouseover="showInfo" @mouseout="hideInfo">
+					<span >{{managerName}}</span>
+					<img :src="headPic" src="static/images/head.jpg" class="head" >
+					<ul class="list-unstyled" v-show="showinfo">
+						<li><a href="#">设置</a></li>
+						<li><a href="#" @click="loginout">退出登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="sidebar">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="##" class="on" @click="user">用户管理</a></li>
+				<li><a href="##"  @click="seller">商家管理</a></li>
+				<li><a href="##"  @click="order">订单管理</a></li>
+				<li><a href="##"  @click="product">商品管理</a></li>
+				<li><a href="##"  @click="address">用户地址管理</a></li>
+			</ul>
+		</div>
+		<div id="showlist" >
+			<h5>{{tableName}}</h5>
+			<div class="searchBox">
+				<input type="text" placeholder="姓名" v-mode.trim="searchText">
+				<button class="btn btn-primary" class="button" @click="search">查询</button>
+				<button class="btn btn-primary" class="button" @click="add">新增</button>
+			</div>
+			<router-link to="/user">user</router-link>
+			<route-view></route-view>
+			<div id="foot">
+				<button class="btn btn-danger" :disabled="disabled" >批量删除</button>
+				<ul class="pagination">
+					<li><a href="#" @click="pageUp" >&laquo</a></li>
+					<li v-for="n in totalPage" @click="toPage(n)" class="pageNum"><a href="#">{{n}}</a></li>
+					<li><a href="#" @click="pageDown" >&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<script src="http://libs.baidu.com/jquery/1.9.1/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="static/js/vue.js"></script>
+	<script type="text/x-template" id="user">
+		<table class="table table-hover container">
+			<tr class="info">
+				<th><input type="checkbox" @click="selectAll" class="check"></th>
+				<th>#</th>
+				<th class="col-md-1" >用户名</th>
+				<th class="col-md-1" >密码</th>
+				<th class="col-md-1" >昵称</th>
+				<th class="col-md-2" >邮箱</th>
+				<th class="col-md-3" >地址</th>
+				<th class="col-md-2" >创建时间</th>
+				<th class="col-md-1" >操作</th>
+			</tr>
+			<tr v-for="(data,index) in datalist">
+				<td><input type="checkBox"></td>
+				<td style="padding-right:20px;">{{index}}</td>
+				<td>{{data.username}}</td>
+				<td>{{data.password}}</td>
+				<td>{{data.name}}</td>
+				<td>{{data.email}}</td>
+				<td>{{data.address}}</td>
+				<td>{{data.time}}</td>
+				<td>
+					<button class="btn btn-default btn-sm" @click="edit">编辑</button>
+					<button class="btn btn-danger btn-sm" @click="del">删除</button>
+				</td>
+			</tr>
+			</table>
+	</script>
+	<script src="static/js/manager.js"></script>
+</body>
+</html>
